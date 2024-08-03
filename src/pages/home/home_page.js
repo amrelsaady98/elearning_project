@@ -1,13 +1,17 @@
 
 import {Container, Paper, Slider} from "@mui/material";
 import Carousel from "react-material-ui-carousel";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import {Image} from "@mui/icons-material";
-import {blue} from "@mui/material/colors";
+import {blue, blueGrey, cyan, grey, indigo, lightBlue, teal} from "@mui/material/colors";
 import pxToRem from "../../assets/theme/functions/pxToRem";
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
+import {Link} from "react-router-dom";
+import Typography from "@mui/material/Typography";
+
+import Grid from '@mui/material/Grid';
+import {CarouselItem} from "react-material-ui-carousel/dist/components/CarouselItem";
+import Card from "@mui/material/Card"; // Grid version 1
+
+
 
 export default function HomePage(){
 
@@ -57,7 +61,7 @@ export default function HomePage(){
                     display:{xs:'none', lg:'block'},
                     width: "100%",
                     height:'7rem',
-                    backgroundColor:blue[200],
+                    backgroundColor:indigo[900],
                     position:'relative',
                     top:'-3.5rem',
                     zIndex:'5',
@@ -69,14 +73,60 @@ export default function HomePage(){
 
             <Box
                 sx={{
-                    px:'0',
-                    py:'12px',
-                    borderBottom:'0.2rem solid blue',
-                    display:'inline'
+                    width:'100vw',
+                    px:'20vw',
+                    display:'flex',
+                    justifyContent:'space-around',
+
                 }}
             >
-                All
+                {TabItem({name:'All', route:'/home', selected:true})}
+                {TabItem({name:'Data'})}
+                {TabItem({name:'Programming & Development'})}
+                {TabItem({name:'Business'})}
             </Box>
+
+            <Box
+                sx={{
+                    py:'2rem',
+                    px:'8rem',
+                    display:'flex',
+                    flexDirection:'column',
+                    backgroundColor:teal[50],
+                    justifyContent:'center',
+                    textAlign:'center'
+                }}
+            >
+                <Typography variant={'title'}>
+                    Unlock Your Tech Future & Transform Your Career
+                </Typography>
+                <Typography variant={'subtitle1'}>
+                    Develop your tech and professional skills with our world-class programmes,
+                    and be part of a community that will accelerate your career.
+                </Typography>
+
+                <Box sx={{ flexGrow: 1 }}>
+                <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
+                    <Grid xs={2} sm={4} md={3}>
+                        <CourseItem/>
+                    </Grid>
+                    <Grid xs={2} sm={4} md={3}>
+                        <CourseItem/>
+                    </Grid>
+                    <Grid xs={2} sm={4} md={3}>
+                        <CourseItem/>
+                    </Grid>
+                    <Grid xs={2} sm={4} md={3}>
+                        <CourseItem/>
+                    </Grid>
+
+                </Grid>
+                </Box>
+
+
+            </Box>
+
+
         </>
     );
 }
@@ -90,7 +140,7 @@ function Item(props)
             }}
         >
         <img
-            ci
+
             src={require(`assets/images/carousel/${props.item.image}`)}
 
             style={{
@@ -101,4 +151,71 @@ function Item(props)
 
         </Box>
     )
+}
+
+function TabItem(props = {name:'Item', route:'/', selected:false}){
+    return (
+        <Link to={props.route}>
+            <Box
+                sx={{
+                    py:'12px'
+                }}
+            >
+                <Typography variant={'subtitle1'} sx={{
+                    px:pxToRem(4),
+                    py:'12px',
+                    borderBottom:'0.3rem solid transparent',
+                    borderColor:props.selected ? cyan[300] : 'transparent',
+                    display:'inline',
+                    cursor:'pointer',
+                    color:grey[700],
+                    boxSizing:'border-box',
+                    '&:hover':{
+                        borderColor:cyan[300],
+                        color:cyan[500]
+                    }
+                }}>
+                    {props.name}
+                </Typography>
+            </Box>
+        </Link>
+    )
+}
+function CourseItem(props = {}){
+    return(
+        <>
+            <Paper variant={'outlined'}
+                sx={{
+                    margin:pxToRem(6),
+
+                    borderRadius:'6px'
+                }}
+            >
+                <img src={require(`assets/images/carousel/alx-slide-10.png`)}
+                     style={{
+                        width:'100%',
+                        objectFit:'cover',
+                        borderRadius:'6px 6px 0 0'
+                    }}
+                />
+                <Box
+                    sx={{
+                        paddingX:pxToRem(20),
+                        paddingY:pxToRem(12),
+                        textAlign:'start',
+                    }}
+                >
+                    <Typography variant={'h6'} sx={{}}>
+                        Back-End Web Development
+                    </Typography>
+                    <Typography variant={'subtitle2'}>
+                        6 Months
+                    </Typography>
+
+
+                </Box>
+
+            </Paper>
+        </>
+    );
 }
