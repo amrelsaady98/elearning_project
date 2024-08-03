@@ -1,17 +1,38 @@
 
-import {Container, Paper, Slider} from "@mui/material";
+import { Paper, Slider} from "@mui/material";
 import Carousel from "react-material-ui-carousel";
-import {blue, blueGrey, cyan, grey, indigo, lightBlue, teal} from "@mui/material/colors";
+import {
+    amber,
+    blue,
+    blueGrey,
+    cyan,
+    green,
+    grey,
+    indigo,
+    lightBlue,
+    lightGreen,
+    lime,
+    teal,
+    yellow
+} from "@mui/material/colors";
 import pxToRem from "../../assets/theme/functions/pxToRem";
 import Box from "@mui/material/Box";
 import {Link} from "react-router-dom";
 import Typography from "@mui/material/Typography";
 
-import Grid from '@mui/material/Grid';
+
 import {CarouselItem} from "react-material-ui-carousel/dist/components/CarouselItem";
-import Card from "@mui/material/Card"; // Grid version 1
+import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
+// import MKPagination from "../../components/MKPagination";
 
 
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Icon from "@mui/material/Icon";
+
+// Material Kit 2 React components
+import MKPagination from "components/MKPagination";
 
 export default function HomePage(){
 
@@ -53,7 +74,7 @@ export default function HomePage(){
                 }}
             >
                {
-                   items.map( (item, i) => (<Item item={item} key={i} />))
+                   items.map( (item, i) => (<MyCarouselItem item={item} key={i} />))
                }
             </Carousel>
             <Container
@@ -107,13 +128,26 @@ export default function HomePage(){
 
                 <Box sx={{ flexGrow: 1 }}>
                 <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-                    <Grid xs={2} sm={4} md={3}>
+
+                    <Grid xs={12} sm={4} md={3}>
+                        <CourseItem/>
+                    </Grid>
+                    <Grid xs={12} sm={4} md={3}>
+                        <CourseItem/>
+                    </Grid>
+                    <Grid xs={12} sm={4} md={3}>
                         <CourseItem/>
                     </Grid>
                     <Grid xs={2} sm={4} md={3}>
                         <CourseItem/>
                     </Grid>
-                    <Grid xs={2} sm={4} md={3}>
+                    <Grid xs={12} sm={4} md={3}>
+                        <CourseItem/>
+                    </Grid>
+                    <Grid xs={12} sm={4} md={3}>
+                        <CourseItem/>
+                    </Grid>
+                    <Grid xs={12} sm={4} md={3}>
                         <CourseItem/>
                     </Grid>
                     <Grid xs={2} sm={4} md={3}>
@@ -121,7 +155,29 @@ export default function HomePage(){
                     </Grid>
 
                 </Grid>
+
+
                 </Box>
+
+                <Container sx={{ height: "100%" }}>
+                    <Grid container item justifyContent="center" xs={12} lg={6} mx="auto" height="100%">
+                        <MKPagination>
+                            <MKPagination item>
+                                <Icon>keyboard_arrow_left</Icon>
+                            </MKPagination>
+                            <MKPagination item active>
+                                1
+                            </MKPagination>
+                            <MKPagination item>2</MKPagination>
+                            <MKPagination item>3</MKPagination>
+                            <MKPagination item>4</MKPagination>
+                            <MKPagination item>5</MKPagination>
+                            <MKPagination item>
+                                <Icon>keyboard_arrow_right</Icon>
+                            </MKPagination>
+                        </MKPagination>
+                    </Grid>
+                </Container>
 
 
             </Box>
@@ -130,7 +186,7 @@ export default function HomePage(){
         </>
     );
 }
-function Item(props)
+function MyCarouselItem(props)
 {
     return (
         <Box
@@ -211,7 +267,39 @@ function CourseItem(props = {}){
                     <Typography variant={'subtitle2'}>
                         6 Months
                     </Typography>
+                    <Button variant={'contained'} autoCapitalize={false} sx={{
+                        paddingY:pxToRem(4),
+                        my:pxToRem(12),
+                        width:'100%',
+                        backgroundColor:green["A200"],
+                        borderRadius:'100px',
+                        color:grey[800],
+                        '&:hover':{
+                            backgroundColor:amber["A200"],
+                        }
+                    }}>
+                        <Typography variant={'button'} sx={{
+                            textTransform: 'none',
+                        }}>
+                            Apply Now
+                        </Typography>
+                    </Button>
 
+                    <Link to={'/test'}>
+                        <Typography
+                            variant={'body1'}
+                            sx={{
+                                textAlign:'center',
+                                cursor:'pointer',
+                                color:cyan[300],
+                                '&:hover':{
+                                    color:grey[400],
+                                }
+                            }}
+                        >
+                            learn more »
+                        </Typography>
+                    </Link>
 
                 </Box>
 
