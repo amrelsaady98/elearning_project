@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from "./pages/home/home_page";
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import theme from "./assets/theme";
+import CourseDetails from "./pages/CourseDetails/CourseDetails";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Navbar />
           <Routes>
               <Route path="/" element={<HomePage/>} />
+              <Route path="/course" element={<CourseDetails/>} />
+
               <Route path="/Login" element={<LoginInfo />} />
               <Route path="/Register" element={<RegisterInfo />} />
               <Route path="*" element={<NotFound />} />

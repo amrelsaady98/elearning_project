@@ -242,7 +242,7 @@ function CourseItem(props = {}){
         <>
             <Paper variant={'outlined'}
                 sx={{
-                    margin:pxToRem(6),
+                    margin:pxToRem(12),
 
                     borderRadius:'6px'
                 }}
@@ -270,6 +270,7 @@ function CourseItem(props = {}){
                     <Button variant={'contained'} autoCapitalize={false} sx={{
                         paddingY:pxToRem(4),
                         my:pxToRem(12),
+                        marginTop:pxToRem(36),
                         width:'100%',
                         backgroundColor:green["A200"],
                         borderRadius:'100px',

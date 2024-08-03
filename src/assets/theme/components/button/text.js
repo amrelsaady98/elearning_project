@@ -25,6 +25,7 @@ const { size } = typography;
 
 export default {
   base: {
+
     backgroundColor: transparent.main,
     minHeight: pxToRem(40),
     color: text.main,

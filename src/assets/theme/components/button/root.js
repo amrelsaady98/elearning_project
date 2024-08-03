@@ -26,6 +26,7 @@ const { borderRadius } = borders;
 export default {
   display: "inline-flex",
   justifyContent: "center",
+
   alignItems: "center",
   fontSize: size.xs,
   fontWeight: fontWeightBold,
@@ -33,7 +34,7 @@ export default {
   padding: `${pxToRem(6.302)} ${pxToRem(16.604)}`,
   lineHeight: 1.4,
   textAlign: "center",
-  textTransform: "uppercase",
+  // textTransform: "capitalized",
   userSelect: "none",
   backgroundSize: "150% !important",
   backgroundPositionX: "25% !important",
