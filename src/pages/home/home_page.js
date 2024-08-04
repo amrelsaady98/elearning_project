@@ -243,7 +243,6 @@ function CourseItem(props = {}){
             <Paper variant={'outlined'}
                 sx={{
                     margin:pxToRem(12),
-
                     borderRadius:'6px'
                 }}
             >

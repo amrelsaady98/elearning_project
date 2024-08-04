@@ -18,7 +18,6 @@ function App() {
           <Routes>
               <Route path="/" element={<HomePage/>} />
               <Route path="/course" element={<CourseDetails/>} />
-
               <Route path="/Login" element={<LoginInfo />} />
               <Route path="/Register" element={<RegisterInfo />} />
               <Route path="*" element={<NotFound />} />
