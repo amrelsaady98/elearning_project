@@ -110,7 +110,7 @@ export default function HomePage(){
             <Box
                 sx={{
                     py:'2rem',
-                    px:'8rem',
+                    px:'16rem',
                     display:'flex',
                     flexDirection:'column',
                     backgroundColor:teal[50],
@@ -288,7 +288,7 @@ function CourseItem(props = {}){
 
                     <Link to={'/test'}>
                         <Typography
-                            variant={'body1'}
+                            variant={'body2'}
                             sx={{
                                 textAlign:'center',
                                 cursor:'pointer',
